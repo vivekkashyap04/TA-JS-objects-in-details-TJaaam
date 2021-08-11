@@ -18,14 +18,14 @@ title:"where is the capital of India",
 arr:["mumbai","kolkata","delhi","cheenai"],
 correctAnswer:2,
 isAnswerCorrect(index){
-if(index === correctAnswer){
+if(index === obj.correctAnswer){
 return true;
 }else{
 return false;
 }
 },
 getCorrectAnswer(){
-return arr[correctAnswer];
+return obj.arr[obj.correctAnswer];
 }
 }
 
@@ -43,7 +43,8 @@ return false;
   };
   obj.getCorrectAnswer = function(){
     return obj.arr[obj.correctAnswer];
-  }
+  };
+  return obj;
 }
 
 function quiz(title,arr,correctAnswer){
@@ -60,5 +61,10 @@ return false;
   };
   obj.getCorrectAnswer = function(){
     return this.arr[this.correctAnswer];
-  }
+  };
+  return obj;
 }
+
+const firstQuestion = quiz("Where is the capital of Jordan",["Tashkent", "Amaan", "Kuwait City", "Nairobi"],1);
+
+const secondQuestion = quiz("Where is the capital of India",["Mumabai", "Kolkata", "Delhi", "Cheenai"],2);

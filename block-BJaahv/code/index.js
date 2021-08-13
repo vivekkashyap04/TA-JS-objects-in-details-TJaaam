@@ -38,7 +38,9 @@ function project(name,id,noOfProjects){
       return projectDetails.noOfProjects;
   };
   projectDetails.changeName = function(newName){
-      return projectDetails.name;
+    let prevName = projectDetails.name;
+    projectDetails.name = newName;
+    return prevName;
   };
   projectDetails.incrementProject = function(value){
        projectDetails.noOfProjects = projectDetails.noOfProjects + value;
@@ -67,7 +69,9 @@ function project(name,id,noOfProjects){
         return this.noOfProjects;
     },
     changeName(newName){
-        return this.name;
+        let prevName = this.name;
+        this.name = newName;
+        return prevName;
     },
     incrementProject(value){
          this.noOfProjects = this.noOfProjects + value;
@@ -93,7 +97,9 @@ function project(name,id,noOfProjects){
         return this.noOfProjects;
     },
     changeName(newName){
-        return this.name;
+        let prevName = this.name;
+        this.name = newName;
+        return prevName;
     },
     incrementProject(value){
          this.noOfProjects = this.noOfProjects + value;
@@ -117,7 +123,9 @@ function project(name,id,noOfProjects){
         return this.noOfProjects;
     }
     changeName(newName){
-        return this.name;
+        let prevName = this.name;
+        this.name = newName;
+        return prevName;
     }
     incrementProject(value){
          this.noOfProjects = this.noOfProjects + value;

@@ -23,13 +23,31 @@ You can use the data given below. You will also have to change the name of the f
 
 ```js
 let firstQuestion = new Question(
-  'Where is the capital of Jordan',
-  ['Tashkent', 'Amaan', 'Kuwait City', 'Nairobi'],
+  "Where is the capital of Jordan",
+  ["Tashkent", "Amaan", "Kuwait City", "Nairobi"],
   1
 );
 let secondQuestion = new Question(
-  'Where is the capital of Jamaica',
-  ['Tashkent', 'Amaan', 'Kingston', 'Nairobi'],
+  "Where is the capital of Jamaica",
+  ["Tashkent", "Amaan", "Kingston", "Nairobi"],
   2
 );
 ```
+
+let questionMethods = {
+isAnswerCorrect: function(index){
+return index === this.correctAnswerIndex;
+},
+getCorrectAnswer: function(){
+return this.options[this.getCorrectAnswer];
+}
+}
+
+function questions(title,options,correctAnswerIndex){
+let obj = create.Object(questionMethods);
+obj.title = title;
+obj.options = options;
+obj.correctAnswerIndex = correctAnswerIndex;
+
+return obj;
+}

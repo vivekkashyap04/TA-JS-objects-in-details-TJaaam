@@ -24,3 +24,9 @@ Create User (class/function) with the following properties.
   - [ ] decrementProject -> returns updated number of projects
 
 Write 2 tests for all the different ways of creating object. Test all the methods on these objects.
+
+
+function project(name,id,noOfProjects){
+  let projectDetails = {};
+  
+}

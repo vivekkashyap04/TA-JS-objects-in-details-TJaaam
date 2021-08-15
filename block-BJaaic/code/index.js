@@ -31,8 +31,8 @@ let animalMethod = {
 }
 function animal(location,numberOfLegs){
     let details = Object.create(animalMethod);
-    this.location = location;
-    this.numberOfLegs = numberOfLegs;
+    details.location = location;
+    details.numberOfLegs = numberOfLegs;
     return details;
 }
 
@@ -69,16 +69,17 @@ let dogMethod = {
         return `I am ${this.name} and I am of ${this.color} color.I can also bark`;
     }
 }
-Object.setPrototypeOf(dogMethod, animalMethod);
+
 
 function dog(location,numberOfLegs,name,color){
-   let details = Object.create(dogMethod);
-   this.name = name;
-   this.color =color;
-   this.location = location;
-   this.numberOfLegs = numberOfLegs;
+   let details = animal(location,numberOfLegs);
+   Object.setPrototypeOf(details,dogMethod);
+   details.name = name;
+   details.color =color;
    return details;
 }
+
+Object.setPrototypeOf(dogMethod, animalMethod);
 /*
 #### Cat
 
@@ -115,13 +116,13 @@ let catMethod = {
         return `I am ${this.name} and the color of my eyes ${this.colorOfEyes} color.I can also do meow meow`;
     }
 }
-Object.setPrototypeOf(catMethod, animalMethod);
+
 
 function cat(location,numberOfLegs,name,colorOfEyes){
-   let details = Object.create(catMethod);
+   let details = animal(location,numberOfLegs);
+   Object.setPrototypeOf(details,catMethod);
    this.name = name;
    this.color =colorOfEyes;
-   this.location = location;
-   this.numberOfLegs = numberOfLegs;
    return details;
 }
+Object.setPrototypeOf(catMethod, animalMethod);

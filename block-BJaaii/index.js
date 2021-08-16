@@ -21,10 +21,12 @@ class Stack{
         this.arr = [];
     }
     push(value){
-        return this.arr.push(value);
+        this.arr.push(value);
+        return this.arr;
     }
     pop(){
-        return this.arr.pop();
+        this.arr.pop();
+        return this.arr;
     }
     peek(index = this.arr.length -1){
        return this.arr[index];
@@ -82,11 +84,13 @@ class Queue{
         this.arr = [];
     }
     enqueue(item){
-        return this.arr.push(item);
+         this.arr.push(item);
+         return this.arr;
 
     }
     dequeue(){
-        return this.arr.shift();
+         this.arr.shift();
+         return this.arr;
     }
     peek(index = 0){
         return this.arr[index];

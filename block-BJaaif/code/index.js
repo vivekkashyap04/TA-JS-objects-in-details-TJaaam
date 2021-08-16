@@ -38,6 +38,7 @@ function personFromPersonStore(name, age) {
      let obj = Object.create(personStore);
      obj.name = name;
      obj.age = age;
+     return obj;
 }
 
 var sandra = personFromPersonStore('Sandra', 26);
@@ -74,11 +75,13 @@ var simon = new PersonConstructor();
 /*** CHALLENGE 2 of 3 ***/
 
 function personFromConstructor(name, age) {
-  this.name = name ;
-  this.age = age;
+  let obj = new PersonConstructor();
+  obj.name = name;
+  obj.age = age;
+  return obj;
 }
 
-var mike =new personFromConstructor('Mike', 30);
+var mike =personFromConstructor('Mike', 30);
 
 // /********* Uncomment these lines to test your work! *********/
 // console.log(mike.name); // -> Logs 'Mike'
@@ -97,8 +100,8 @@ var mike =new personFromConstructor('Mike', 30);
 /*** CHALLENGE 1 of 3 ***/
 
 class PersonClass {
-  constructor() {
-    // add code here
+  constructor(name) {
+    this.name = name;
   }
 
   greet(){
@@ -113,9 +116,9 @@ var george = new PersonClass();
 /*** CHALLENGE 2 of 3 ***/
 
 // add code here
-class DeveloperClass{
+class DeveloperClass extends PersonClass{
   constructor(name,age){
-    this.name = name;
+    super(name);
     this.age = age;
   }
   introduce(){
@@ -145,11 +148,7 @@ function userFactory(name, score) {
   return user;
 }
 
-var adminFunctionStore = {
-  sayType: function () {
-    console.log('I am a ' + this.type);
-  },
-}; /* Put code here */;
+var adminFunctionStore = Object.create(userFunctionStore); /* Put code here */;
 
 function adminFactory(name, score) {
     let obj = userFactory(name,score);
